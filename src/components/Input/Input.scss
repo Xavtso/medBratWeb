@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.input-form {
+  display: flex;
+  position: relative; // Важливо для позиціонування кнопки
+  padding: $padding;
+  width: 100%;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  textarea {
+    flex: 1;
+    padding: $padding;
+    border: none;
+    border-radius: 30px;
+    height: 80px;
+    background-color: $secondary-lighter-color;
+    color: $text-color;
+
+
+    resize: none; // Щоб текстове поле не розтягувалось вручну
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    position: absolute; // Абсолютне позиціонування
+    right: 24px; // Прив'язка до правого краю
+    bottom: 24px; // Відступ знизу
+    background-color: $accent-color;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+
+    &:hover {
+      background-color: darken($accent-color, 10%);
+    }
+  }
+}

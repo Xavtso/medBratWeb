@@ -1,0 +1,32 @@
+@import "../../styles/variables";
+
+.message {
+  display: flex;
+  margin-bottom: $padding;
+  border-radius: 20px;
+
+  p {
+    padding: $padding;
+    border-radius: $border-radius;
+    max-width: 600px;
+    word-wrap: break-word;
+  }
+
+  &.bot {
+    justify-content: flex-start;
+
+    p {
+      background-color: $secondary-color;
+      color: $text-color;
+    }
+  }
+
+  &.user {
+    justify-content: flex-end;
+
+    p {
+      background-color: $secondary-lighter-color;
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../styles/variables";
+
+.sidebar {
+  background-color: $secondary-color;
+  width: 250px;
+  padding: $padding;
+  display: flex;
+  flex-direction: column;
+  gap: $padding;
+  border-radius: 10px;
+  border: $border-primary;
+
+  .new-chat-button {
+    background-color: $secondary-lighter-color;
+    border: none;
+    color: white;
+    padding: $padding;
+    border-radius: $border-radius;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: lighten($secondary-lighter-color, 5%);
+    }
+  }
+
+  .chats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .chat-item {
+      padding: 12px;
+      background-color: darken($secondary-color, 5%);
+      border-radius: $border-radius;
+      color: $text-color;
+      cursor: pointer;
+
+      &:hover {
+        background-color: lighten($secondary-color, 5%);
+      }
+    }
+  }
+}

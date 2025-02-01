@@ -1,0 +1,32 @@
+@import "../../styles/variables";
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  flex: 1;
+}
+.chat {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  position: relative;
+  .messages {
+    padding: $padding;
+    min-height: 600px;
+    max-height: 600px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    // Прибираємо скролбар
+    scrollbar-width: none; // Для Firefox
+    -ms-overflow-style: none; // Для IE та старого Edge
+
+    &::-webkit-scrollbar {
+      display: none; // Для Chrome, Safari
+    }
+  }
+}
