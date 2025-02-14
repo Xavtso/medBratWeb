@@ -4,17 +4,11 @@ import "./styles/main.scss";
 import Chat from "./components/Chat";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
+import {  RouterProvider } from "react-router-dom";
+import { router } from "./constants/router";
 
 const App: React.FC = () => {
-  return (
-    <div className="container">
-      <Sidebar />
-      <div className="main-content">
-        <Header />
-        <Chat />
-      </div>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
