@@ -5,4 +5,5 @@ export const API_ENDPOINTS = {
   getChat: "/chat/get/",
   getAllChats: "/chat/all",
   addMessage: "/chat/add/message",
+  deleteChat: "/chat/delete/",
 };

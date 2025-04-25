@@ -7,16 +7,48 @@
   display: flex;
   flex-direction: column;
   gap: $padding;
-  border-radius: 10px;
-  border: $border-primary;
+  border-right: $border-primary;
+
+  &.collapsed {
+    width: 60px;
+    padding: $padding;
+
+    background-color: $primary-color;
+
+    .sidebar-header {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .new-chat-button span {
+      display: none;
+    }
+
+    .chat-item {
+      text-align: center;
+      span {
+        display: none;
+      }
+    }
+  }
+
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
   .new-chat-button {
     background-color: $secondary-lighter-color;
     border: none;
     color: white;
-    padding: $padding;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    gap: 8px;
     border-radius: $border-radius;
-    font-size: 1rem;
+    font-size: 0.8rem;
     cursor: pointer;
 
     &:hover {
@@ -27,18 +59,64 @@
   .chats {
     display: flex;
     flex-direction: column;
-    gap: 8px;
-
+    gap: 6px;
     .chat-item {
-      padding: 12px;
-      background-color: darken($secondary-color, 5%);
+      padding: 8px 12px;
       border-radius: $border-radius;
       color: $text-color;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       cursor: pointer;
 
       &:hover {
-        background-color: lighten($secondary-color, 5%);
+        background-color: lighten($secondary-color, 4%);
       }
     }
+    .active {
+      background-color: lighten($secondary-color, 8%);
+    }
+
+    .chat-actions {
+      position: relative;
+
+      .chat-menu-icon {
+        color: $text-color;
+        cursor: pointer;
+
+        &:hover {
+          color: lighten($text-color, 15%);
+        }
+      }
+
+      .chat-menu {
+        position: absolute;
+        top: 24px;
+        right: 0;
+        background: #2a2a2a;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 4px;
+        border-radius: 8px;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+
+        .delete-chat-button {
+          background: transparent;
+          color: #ff4d4f;
+          border: none;
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          cursor: pointer;
+          font-size: 0.85rem;
+        }
+      }
+    }
+  }
+
+  .toggle-button {
+    background-color: transparent;
+    border: none;
+    color: $text-color;
   }
 }

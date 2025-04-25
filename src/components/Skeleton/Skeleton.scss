@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $text-color;
+  text-align: center;
+  padding: $padding;
+
+  .empty-icon {
+    color: $accent-color;
+  }
+
+  .empty-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: $text-color;
+  }
+
+  .empty-subtitle {
+    font-size: 14px;
+    color: lighten($text-color, 20%);
+    max-width: 400px;
+    line-height: 1.5;
+  }
+}

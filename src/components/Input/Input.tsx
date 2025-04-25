@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Input.scss";
+import { IoArrowUpCircleSharp } from "react-icons/io5";
 
 interface InputProps {
   onSendMessage: (message: string) => void;
@@ -18,7 +19,6 @@ const Input: React.FC<InputProps> = ({ onSendMessage }) => {
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
-      // Відправляємо тільки якщо Enter без Shift
       e.preventDefault();
       if (message.trim()) {
         onSendMessage(message);
@@ -33,9 +33,11 @@ const Input: React.FC<InputProps> = ({ onSendMessage }) => {
         placeholder="How do you feel today?"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        onKeyDown={handleKeyPress} // Додаємо обробку Enter
+        onKeyDown={handleKeyPress}
       />
-      <button type="submit">Send</button>
+      <button type="submit">
+        <IoArrowUpCircleSharp size={20} />
+      </button>
     </form>
   );
 };

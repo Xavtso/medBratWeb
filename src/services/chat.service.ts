@@ -11,6 +11,18 @@ export const createChat = createAsyncThunk("chats/createChat", async () => {
   }
 });
 
+export const deleteChat = createAsyncThunk(
+  "chats/deleteChat",
+  async (chatId: string, { rejectWithValue }) => {
+    try {
+      const { data } = await client.delete(API_ENDPOINTS.deleteChat + chatId);
+      return data;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
+
 export const addMessage = createAsyncThunk(
   "chats/addMessage",
   async ({ chatId, message }: { chatId: string; message: string }) => {

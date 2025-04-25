@@ -15,6 +15,8 @@ const Message: React.FC<MessageProps> = ({
   animate = false,
   onAnimationComplete,
 }) => {
+  console.log(sender, "sender");
+
   if (sender === "bot" && animate) {
     return (
       <div className={`message ${sender}`}>
@@ -23,7 +25,11 @@ const Message: React.FC<MessageProps> = ({
     );
   }
 
-  return <div className={`message ${sender}`}>{text}</div>;
+  return (
+    <div className={`message ${sender}`}>
+      <p>{text}</p>
+    </div>
+  );
 };
 
 export default Message;

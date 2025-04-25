@@ -6,6 +6,7 @@ import {
   getMessages,
   addMessage,
   getAllChats,
+  deleteChat,
 } from "../../services/chat.service";
 
 const chatsSlice = createSlice({
@@ -41,6 +42,11 @@ const chatsSlice = createSlice({
       .addCase(getAllChats.fulfilled, (state, action) => {
         state.chats = action.payload;
       });
+    builder.addCase(deleteChat.fulfilled, (state, action) => {
+      state.chats = state.chats.filter(
+        (chat) => chat._id !== action.payload.chatId
+      );
+    });
   },
 });
 

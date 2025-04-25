@@ -19,7 +19,7 @@ const Chat: React.FC = () => {
   const [isTyping, setIsTyping] = useState(false);
   // Зберігаємо _id_ нового бот-повідомлення, яке треба анімувати
   const [animatingBotMessageId, setAnimatingBotMessageId] = useState<
-    string | null
+    number | null
   >(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -73,7 +73,7 @@ const Chat: React.FC = () => {
           {messages?.map((msg, index) => {
             // Анімувати лише повідомлення від бота, якщо його _id співпадає з animatingBotMessageId
             const animate =
-              msg.sender === "bot" && msg._id === animatingBotMessageId;
+              msg.sender === "bot" && msg.id === animatingBotMessageId;
             return (
               <Message
                 key={index}

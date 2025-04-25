@@ -2,7 +2,7 @@
 
 .input-form {
   display: flex;
-  position: relative; // Важливо для позиціонування кнопки
+  position: relative;
   padding: $padding;
   width: 100%;
   align-items: center;
@@ -10,15 +10,18 @@
 
   textarea {
     flex: 1;
-    padding: $padding;
+    padding: 16px 20px;
     border: none;
     border-radius: 30px;
     height: 80px;
     background-color: $secondary-lighter-color;
     color: $text-color;
-
-
-    resize: none; // Щоб текстове поле не розтягувалось вручну
+    resize: none;
+    font-size: 1rem;
+    line-height: 1.5; // 👈 Це вирівнює текст по вертикалі
+    display: flex;
+    align-items: center; // не працює напряму для textarea, але тримаємо стильності
+    justify-content: center;
 
     &::placeholder {
       color: rgba(255, 255, 255, 0.6);
@@ -30,19 +33,30 @@
   }
 
   button {
-    position: absolute; // Абсолютне позиціонування
-    right: 24px; // Прив'язка до правого краю
-    bottom: 24px; // Відступ знизу
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
     background-color: $accent-color;
-    border: none;
     color: white;
-    padding: 10px 20px;
-    border-radius: 20px;
+    border: none;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border-radius: 50px;
     cursor: pointer;
-    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease, transform 0.1s ease;
 
     &:hover {
-      background-color: darken($accent-color, 10%);
+      background-color: darken($accent-color, 5%);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: scale(0.98);
     }
   }
 }
